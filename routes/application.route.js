@@ -3,10 +3,9 @@ const {
   newApplication,
   getAllApplications
 } = require("../controllers/application.controller");
-const { isAuthenticate, isAuthorizeRoles } = require("../middlewares/auth");
 const router = express.Router();
 
-router.route("/apply").post(isAuthenticate,newApplication);
-router.route("/admin/applicants").get(isAuthenticate, isAuthorizeRoles("admin"), getAllApplications);
+router.route("/apply").post(newApplication);
+router.route("/admin/applicants").get(getAllApplications);
 
 module.exports = router;
