@@ -28,7 +28,7 @@ router.route("/me/update").put(isAuthenticate, updateProfile);
 
 router
   .route("/admin/users")
-  .get(isAuthenticate, isAuthorizeRoles("admin"), getAllUsers);
+  .get(getAllUsers);
 router
   .route("/admin/user/:id")
   .get(isAuthenticate, isAuthorizeRoles("admin"), getSingleUser)
